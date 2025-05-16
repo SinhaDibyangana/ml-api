@@ -29,16 +29,7 @@ GEOFENCES = {
 @app.route('/')
 def home():
     return "Flask ML API is running ✅"
-@app.route('/routes')
-def all_routes():
-    import urllib
-    output = []
-    for rule in app.url_map.iter_rules():
-        methods = ','.join(rule.methods)
-        line = f"{rule.rule} [{methods}]"
-        output.append(line)
-    return "<br>".join(sorted(output))
-
+    
 
 @app.route('/predict', methods=['POST'])
 def predict():
